@@ -1,0 +1,17 @@
+#This line is added for solving the 403 error on MacOS X
+Options +FollowSymLinks
+
+
+RewriteEngine on
+
+#This line depends on the script's location
+RewriteBase /~gtrdp/rolesystem-ws
+
+RewriteCond $1 !^(index\.php|resources|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
+
+#if not working,please check http://www.anmsaiful.net/blog/php/remove-codeigniter-index-php.html
+#other resource: http://www.web-and-development.com/codeigniter-minimize-url-and-remove-index-php/
